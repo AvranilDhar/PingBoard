@@ -10,6 +10,9 @@ connectDB()
             console.log(`APP IS RUNNING @ http://localhost:${ENV.PORT}`);
         });
     }
+    app.get('/',(req,res)=>{
+        res.send('Hello');
+    })
 })
 .catch ((error)=>{
     console.error(`MONGODB CONNECTION ERROR : ${error.message}`);
