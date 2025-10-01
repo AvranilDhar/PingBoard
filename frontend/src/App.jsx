@@ -1,9 +1,14 @@
-import React from 'react'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 
-const App = () => {
+export default function App() {
   return (
-    <div>App</div>
-  )
+    <header>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
+    </header>
+  );
 }
-
-export default App
