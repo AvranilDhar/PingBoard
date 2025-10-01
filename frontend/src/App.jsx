@@ -4,7 +4,7 @@ export default function App() {
   return (
     <header>
       <SignedOut>
-        <SignInButton />
+        <SignInButton mode='modal'/>
       </SignedOut>
       <SignedIn>
         <UserButton />

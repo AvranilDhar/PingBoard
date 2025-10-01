@@ -5,9 +5,11 @@ import { ENV } from "./utils/env.js";
 
 connectDB()
 .then (()=>{
-    app.listen(ENV.PORT , ()=> {
-        console.log(`APP IS RUNNING @ http://localhost:${ENV.PORT}`);
-    });
+    if(ENV.NODE_ENV !== "production"){
+        app.listen(ENV.PORT , ()=> {
+            console.log(`APP IS RUNNING @ http://localhost:${ENV.PORT}`);
+        });
+    }
 })
 .catch ((error)=>{
     console.error(`MONGODB CONNECTION ERROR : ${error.message}`);

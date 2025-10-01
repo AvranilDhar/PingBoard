@@ -1,7 +1,9 @@
 import express from "express";
 import cookieparser from "cookie-parser";
-import { clerkMiddleware } from '@clerk/express'
-import { clerkClient, requireAuth, getAuth } from '@clerk/express'
+import { clerkMiddleware } from '@clerk/express';
+import { clerkClient, requireAuth, getAuth } from '@clerk/express';
+import { serve } from "inngest/express";
+import { inngest, functions } from "./utils/inngest.js";
 
 const app = express();
 
@@ -17,6 +19,8 @@ app.use(express.urlencoded({
 app.use(cookieparser());
 
 app.use(clerkMiddleware());
+
+app.use("/api/inngest", serve({ client: inngest, functions }));
 
 // Use requireAuth() to protect this route
 // If user isn't authenticated, requireAuth() will redirect back to the homepage
