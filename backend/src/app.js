@@ -35,4 +35,4 @@ app.get('/protected', requireAuth(), async (req, res) => {
   })
   
 
-export { app };
+export default app;
